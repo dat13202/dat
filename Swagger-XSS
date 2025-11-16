@@ -1,0 +1,9 @@
+{
+    "url": "https://dat13202.github.io/dat/Swagger-XSS/dat.yaml",
+    "urls": [
+        {
+            "url": "https://dat13202.github.io/dat/Swagger-XSS/dat.yaml",
+            "name": "Foo"
+        }
+    ]
+}
