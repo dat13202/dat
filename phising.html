@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phishing Awareness Demo – (Training Only)</title>
+  <style>
+    :root{
+      --bg:#0b1220; --card:#0f172a; --ink:#e5e7eb; --muted:#94a3b8;
+      --accent:#ef4444; --accent2:#f97316; --line:#1f2937; --ok:#22c55e;
+      --warn:#fde68a;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      background:radial-gradient(1200px 800px at 10% -10%, rgba(239,68,68,.12), transparent 40%),
+                 radial-gradient(1000px 600px at 110% 10%, rgba(249,115,22,.12), transparent 40%),
+                 var(--bg);
+      color:var(--ink);
+      line-height:1.5;
+      min-height:100dvh;
+    }
+    .container{
+      max-width:1000px; margin:40px auto; padding:20px;
+    }
+    .banner{
+      display:flex; align-items:center; gap:14px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:white; padding:16px 18px; border-radius:14px;
+      box-shadow:0 12px 30px rgba(0,0,0,.35);
+      position:relative; overflow:hidden;
+    }
+    .banner .icon{
+      width:28px; height:28px; display:grid; place-items:center;
+      background:rgba(255,255,255,.18); border-radius:10px; font-weight:800;
+    }
+    .banner strong{font-size:18px}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.02), transparent 40%),
+                 var(--card);
+      border:1px solid var(--line);
+      border-radius:16px; padding:20px; box-shadow:0 12px 30px rgba(2,6,23,.35);
+      margin-top:16px;
+    }
+    .addressbar{
+      display:flex; align-items:center; gap:10px; padding:12px 14px;
+      background:#0a1222; border:1px solid #1e293b; border-radius:12px; color:#e5e7eb;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      overflow:auto;
+    }
+    .dot{width:10px; height:10px; border-radius:50%}
+    .d-red{background:#ef4444}.d-yellow{background:#f59e0b}.d-green{background:#22c55e}
+    .url{white-space:nowrap}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      border:1px dashed #7f1d1d; color:#fecaca; background:#7f1d1d33;
+      padding:6px 10px; border-radius:999px; font-size:13px; margin-left:auto;
+    }
+    h1{margin:0 0 6px 0; font-size:28px}
+    .subtitle{color:var(--muted); margin-top:0}
+    .grid{display:grid; gap:12px; grid-template-columns:repeat(12,1fr)}
+    .col-7{grid-column:span 7}
+    .col-5{grid-column:span 5}
+    .flag{
+      display:flex; gap:12px; align-items:flex-start;
+      padding:14px; border-radius:12px; border:1px dashed #b91c1c;
+      background:#7f1d1d22; color:#fecaca;
+    }
+    .flag .n{
+      width:26px; height:26px; background:#b91c1c; color:white; border-radius:8px;
+      display:grid; place-items:center; font-weight:700
+    }
+    ul.hints{margin:10px 0 0 0; padding:0 0 0 18px; color:#e2e8f0}
+    .cta{
+      display:flex; gap:12px; flex-wrap:wrap; margin-top:16px
+    }
+    .btn{
+      padding:10px 14px; border-radius:12px; border:1px solid #334155;
+      background:#0b1322; color:#e5e7eb; cursor:not-allowed; opacity:.5
+    }
+    .btn[aria-disabled="true"]{pointer-events:none}
+    .watermark{
+      position:fixed; inset:0; pointer-events:none; display:grid; place-items:center;
+      z-index:0; opacity:.085; font-weight:900; letter-spacing:.08em; text-transform:uppercase;
+      font-size:8vw; color:#ffffff;
+      mix-blend-mode:overlay; transform:rotate(-16deg);
+    }
+    .footer{
+      margin-top:16px; color:#cbd5e1; font-size:13px
+    }
+    .tips{
+      background:#052e1a; border:1px solid #14532d; color:#dcfce7; padding:14px; border-radius:12px
+    }
+    code{background:#0a1222; border:1px solid #1f2937; padding:2px 6px; border-radius:6px}
+    a.fake{color:#60a5fa; text-decoration:underline dotted; pointer-events:none; cursor:default}
+  </style>
+</head>
+<body>
+  <div class="watermark">PHISHING DEMO • TRANG GIẢ MẠO</div>
+  <div class="container">
+    <div class="banner" role="alert" aria-live="polite">
+      <div class="icon">⚠️</div>
+      <div>
+        <strong>CẢNH BÁO:</strong> Trang dưới đây CHỈ dùng cho đào tạo. Đây là ví dụ về
+        <em>trang giả mạo (phishing)</em> với các dấu hiệu được làm nổi bật. Không có bất kỳ dữ liệu nào được thu thập.
+      </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 124 124" fill="none" onmouseover="alert('Chao mung toi ngan hang MBBANK')"><rect width="24" height="24" rx="24" fill="#000000"/></svg>
+
+    <div class="card">
+      <h1>Chào mừng đến với <span style="font-weight:800">Phishing page</span> <span style="opacity:.6">(DEMO)</span></h1>
+      <p class="subtitle">Ví dụ minh hoạ để nhận biết dấu hiệu lừa đảo – KHÔNG phải trang thật, KHÔNG đăng nhập.</p>
+
+      <!-- Fake address bar for education only -->
+      <div class="addressbar" aria-label="Thanh địa chỉ giả lập (demo)">
+        <div class="dot d-red"></div>
+        <div class="dot d-yellow"></div>
+        <div class="dot d-green"></div>
+        <div class="url">
+          hxxps://mb-login-secure.example[.]support/verify/account?promo=2025&gift=iphone
+        </div>
+        <div class="pill">Tên miền đáng ngờ</div>
+      </div>
+
+      <div class="grid" style="margin-top:14px">
+        <div class="col-7">
+          <div class="flag" role="note">
+            <div class="n">1</div>
+            <div>
+              <strong>URL mạo danh &amp; tên miền lạ</strong><br>
+              Tên miền không khớp với tên miền chính thức. Chèn thêm từ khoá như <em>secure</em>, <em>verify</em>, <em>support</em>.
+            </div>
+          </div>
+
+          <div class="flag" role="note" style="margin-top:10px">
+            <div class="n">2</div>
+            <div>
+              <strong>Ưu đãi/đuổi gấp</strong><br>
+              Dụ hứa quà tặng, khóa tài khoản nếu không bấm ngay, tạo cảm giác gấp gáp.
+            </div>
+          </div>
+
+          <div class="flag" role="note" style="margin-top:10px">
+            <div class="n">3</div>
+            <div>
+              <strong>Chính tả và bố cục kém</strong><br>
+              Sử dụng biểu tượng ổ khóa giả, logo méo, hoặc văn phong không chuyên nghiệp.
+            </div>
+          </div>
+
+          <div class="cta">
+            <button class="btn" aria-disabled="true">ĐĂNG NHẬP (đã vô hiệu hóa cho an toàn)</button>
+            <button class="btn" aria-disabled="true">XÁC MINH (đã vô hiệu hóa)</button>
+          </div>
+        </div>
+
+        <div class="col-5">
+          <div class="tips">
+            <strong>Cách xử lý an toàn</strong>
+            <ul class="hints">
+              <li>Gõ tay tên miền chính thức hoặc dùng bookmark của bạn.</li>
+              <li>Kiểm tra kỹ tên miền (<code>.example</code> ở đây chỉ để minh hoạ).</li>
+              <li>Đừng nhập thông tin cá nhân trên trang lạ. Báo cáo cho bộ phận IT/CSKH.</li>
+              <li>Luôn bật xác thực đa yếu tố (MFA) và cập nhật trình duyệt.</li>
+            </ul>
+          </div>
+          <p class="footer">
+            Lưu ý: Đây là <em>mô phỏng đào tạo</em>. Các nút và liên kết đều bị vô hiệu hoá.
+            Không có form, không có trình theo dõi, không gửi dữ liệu ra ngoài.
+          </p>
+          <p class="footer">
+            Ví dụ liên kết (không bấm được): <a class="fake" href="#" aria-disabled="true">hxxps://mb-login-secure.example[.]support</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
