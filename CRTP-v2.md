@@ -1,20 +1,3 @@
----
-title: "CRTP"
-description: "AD"
-icon: "article"
-date: "2025-12-10"
-lastmod: "2025-12-10"
-draft: false
-toc: true
-weight: 999
----
-
-```xml
-Author: Abdur Rahman 
-Email: aburahman918@gmail.com
-Date: 10-12-2025
-```
-
 The `CRTP` exam simulates a realistic Active Directory penetration test where I started with standard user credentials on a domain-joined workstation (`studvm`) in the `tech.corp` domain and had to work my way up to Domain Admin access across a five-machine environment. This report documents the complete attack chain I executed, beginning with initial reconnaissance and credential discovery, then leveraging Resource-Based Constrained Delegation (`RBCD`) to compromise the management server (`mgmtsrv`), dumping credentials with Mimikatz to pivot to additional systems (`techsrv30`, `adminsrv86`), and finally exploiting Active Directory Certificate Services (`ADCS`) misconfigurations through `ESC3` enrollment agent abuse to authenticate as the domain administrator and gain full control of the domain controller. Each step built on the previous compromise, demonstrating how attackers chain together common AD misconfigurations and privilege escalation techniques to systematically elevate from a low-privileged user to complete domain dominance, showcasing practical red team skills in Kerberos ticket manipulation, lateral movement, and certificate-based authentication attacks in a real-world enterprise scenario.
 
 <img width="1392" height="757" alt="image" src="https://github.com/user-attachments/assets/bd26a0a2-1fee-4660-b903-72380b903325" />
